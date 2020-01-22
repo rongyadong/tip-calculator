@@ -30,7 +30,7 @@ export const TipCalculator = () => {
             <span>Split</span>
             <button onClick={() => dispatch({type: ActionTypes.SplitIncrement})}>+</button>
             <span>{split}</span>
-            <button onClick={() => dispatch({type: ActionTypes.PercentageChange})}>-</button>
+            <button onClick={() => dispatch({type: ActionTypes.SplitDecrement})}>-</button>
         </div>
 
         <button onClick={() => dispatch({type: ActionTypes.Reset})}>RESET</button>
