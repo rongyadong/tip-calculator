@@ -6,9 +6,7 @@ import {TipCalculator} from "./components/TipCalculator";
 const App: React.FC = () => {
     return (
         <Provider store={store}>
-            <>
-                <TipCalculator/>
-            </>
+            <TipCalculator/>
         </Provider>
     );
 }
