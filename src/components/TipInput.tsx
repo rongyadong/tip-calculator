@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectBill, selectSplit, selectPercentage } from '../store/selectors';
-import { ActionTypes } from '../store/actions';
+import {useSelector, useDispatch} from 'react-redux';
+import {selectBill, selectSplit, selectPercentage} from '../store/selectors';
+import {ActionTypes} from '../store/actions';
 
 export const TipInput = () => {
     const bill = useSelector(selectBill);
@@ -17,7 +17,7 @@ export const TipInput = () => {
                     className='w-full bg-gray-800 text-white text-2xl'
                     value={bill}
                     onChange={e =>
-                        dispatch({
+                        !Number.isNaN(Number(e.target.value)) && dispatch({
                             type: ActionTypes.BillChange,
                             payload: e.target.value,
                         })
@@ -31,7 +31,7 @@ export const TipInput = () => {
                     className='w-full bg-gray-800 text-white text-2xl'
                     value={percentage}
                     onChange={e =>
-                        dispatch({
+                        !Number.isNaN(Number(e.target.value)) && dispatch({
                             type: ActionTypes.PercentageChange,
                             payload: e.target.value,
                         })
@@ -44,13 +44,13 @@ export const TipInput = () => {
                 <div className='flex justify-between items-center'>
                     <button
                         className='w-1/3 bg-teal-400 text-gray-800 text-2xl rounded'
-                        onClick={() => dispatch({ type: ActionTypes.SplitIncrement })}>
+                        onClick={() => dispatch({type: ActionTypes.SplitIncrement})}>
                         +
                     </button>
                     <span className='text-teal-400'>{split}</span>
                     <button
                         className='w-1/3 bg-teal-400 text-gray-800 text-2xl rounded'
-                        onClick={() => dispatch({ type: ActionTypes.SplitDecrement })}>
+                        onClick={() => dispatch({type: ActionTypes.SplitDecrement})}>
                         -
                     </button>
                 </div>
